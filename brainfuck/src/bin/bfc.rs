@@ -38,6 +38,13 @@ fn main() -> Result<(), io::Error> {
                     fs::write(file_out, brainfuck::vm::serialize(&text))
                         .expect("Failed to write bytecode");
                 }
+                "x86_64-linux" => {
+                    if file_out.is_empty() {
+                        file_out = String::from("out.x86_64")
+                    }
+
+                    brainfuck::backend::x86_64::linux::compile(&text, &file_out)?;
+                }
                 _ => {
                     eprintln!("Invalid platform");
                 }
