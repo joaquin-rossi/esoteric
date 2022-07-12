@@ -1,0 +1,13 @@
+[package]
+name = "brainfuck"
+version = "0.1.0"
+authors = []
+edition = "2021"
+
+[lib]
+name = "brainfuck"
+path = "src/lib.rs"
+
+[dependencies]
+argparse = "0.2.2"
+byteorder = "1.4.3"
